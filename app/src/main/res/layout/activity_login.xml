@@ -8,7 +8,7 @@
     android:background="#04D9D9">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/facebookLoginButton"
         android:layout_width="299dp"
         android:layout_height="59dp"
         android:text="Continue with Facebook"
