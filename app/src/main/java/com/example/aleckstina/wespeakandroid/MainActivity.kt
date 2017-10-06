@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         // Example of a call to a native method
-        val tv = findViewById(R.id.sample_text) as TextView
+        val tv = findViewById<TextView>(R.id.textView);
         tv.text = stringFromJNI()
     }
 
