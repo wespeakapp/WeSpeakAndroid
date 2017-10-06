@@ -16,4 +16,5 @@ interface Authenticator {
     }
     fun handleActivityResult(requestCode: Int, resultCode: Int, data: Intent?)
     fun doLogin(activity: Activity)
+    fun isFinished() : Boolean
 }

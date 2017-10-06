@@ -9,6 +9,8 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.Toast
+import com.example.aleckstina.wespeakandroid.MainActivity
 
 import com.example.aleckstina.wespeakandroid.R
 import com.example.aleckstina.wespeakandroid.auth.Authenticator
@@ -33,13 +35,18 @@ class LoginActivity :  AppCompatActivity() {
         mFacebookLogin.setOnClickListener() {
             v -> facebookAuthenticator.doLogin(this)
         }
-
-        System.out.println(AccessToken.getCurrentAccessToken().token);
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         facebookAuthenticator.handleActivityResult(requestCode, resultCode, data)
+        if(facebookAuthenticator.isFinished()) {
+            changeActivityAfterResult()
+        }
+    }
+
+    private fun changeActivityAfterResult() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 }
