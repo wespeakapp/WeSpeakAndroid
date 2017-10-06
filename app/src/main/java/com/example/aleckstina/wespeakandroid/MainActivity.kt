@@ -2,29 +2,32 @@ package com.example.aleckstina.wespeakandroid
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
+import com.facebook.AccessToken
+import android.support.design.widget.TabLayout
+import android.support.v4.view.ViewPager
+import android.view.View
+import com.example.aleckstina.wespeakandroid.adapter.MainFragmentPagerAdapter
+
+
+
 
 class MainActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        // Example of a call to a native method
-        val tv = findViewById<TextView>(R.id.textView);
-        tv.text = stringFromJNI()
+        val viewPager = findViewById<View>(R.id.viewpager) as ViewPager
+        viewPager.adapter = MainFragmentPagerAdapter(supportFragmentManager,
+                this@MainActivity)
+        val tabLayout = findViewById<View>(R.id.sliding_tabs) as TabLayout
+        tabLayout.setupWithViewPager(viewPager)
     }
 
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
-    external fun stringFromJNI(): String
-
-    companion object {
-
-        // Used to load the 'native-lib' library on application startup.
-        init {
-            System.loadLibrary("native-lib")
+    fun setupIconsForTabs(tabLayout: TabLayout) {
+        val imageResId = intArrayOf(R.drawable.ic_one, R.drawable.ic_two, R.drawable.ic_three)
+        for (i in imageResId.indices) {
+            tabLayout.getTabAt(i)?.setIcon(imageResId[i])
         }
     }
 }
