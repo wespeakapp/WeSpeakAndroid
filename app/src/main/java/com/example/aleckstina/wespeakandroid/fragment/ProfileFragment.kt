@@ -14,15 +14,13 @@ class ProfileFragment : Fragment() {
     private var mPage : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        mPage = getArguments().getInt(ARG_PAGE);
+        mPage = arguments.getInt(ARG_PAGE);
         super.onCreate(savedInstanceState)
 
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater?.inflate(R.layout.profile_fragment, container, false)
-        return view
-    }
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+      inflater?.inflate(R.layout.profile_fragment, container, false)
 
     companion object {
         val ARG_PAGE = "ARG_PAGE"
@@ -30,7 +28,7 @@ class ProfileFragment : Fragment() {
             val args = Bundle()
             args.putInt(ARG_PAGE, page)
             val fragment = ProfileFragment()
-            fragment.setArguments(args)
+            fragment.arguments = args
             return fragment
         }
     }
