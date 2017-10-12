@@ -23,7 +23,7 @@ class ConversationFragment : Fragment() {
 
   companion object {
     val ARG_PAGE = "ARG_PAGE"
-    fun newInstance(page: Int) : ConversationFragment{
+    fun newInstance(page: Int) : ConversationFragment {
       val args = Bundle()
       args.putInt(ARG_PAGE, page)
       val fragment = ConversationFragment()
