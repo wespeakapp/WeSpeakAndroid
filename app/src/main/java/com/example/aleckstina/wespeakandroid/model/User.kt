@@ -1,17 +1,25 @@
 package com.example.aleckstina.wespeakandroid.model
 
+import android.databinding.BaseObservable
+import android.databinding.Bindable
+import com.android.databinding.library.baseAdapters.BR
+
 /**
  * Created by aleckstina on 10/6/17.
  */
-class User {
-    private val email: String
-    private val language: String
-    private val user_description: String
+class User(email: String) : BaseObservable() {
+  @Bindable
+  private lateinit var email: String
 
-    constructor(email: String, language: String, user_description: String) {
-        this.email = email
-        this.language = language
-        this.user_description = user_description
-    }
+  public fun getEmail(): String = this.email
+
+  public fun setEmail(email: String) {
+    this.email = email
+    notifyPropertyChanged(BR.email)
+  }
+
+  init {
+    setEmail(email)
+  }
 
 }
