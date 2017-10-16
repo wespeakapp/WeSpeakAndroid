@@ -11,7 +11,7 @@ import com.example.aleckstina.wespeakandroid.auth.Authenticator
 class LoginActivity :  AppCompatActivity() {
     private lateinit var mFacebookLogin : Button
     private val facebookAuthenticator by lazy {
-        Authenticator.create(Authenticator.FACEBOOK);
+        Authenticator.create(Authenticator.FACEBOOK)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +22,7 @@ class LoginActivity :  AppCompatActivity() {
     }
     private fun setOnClickFacebookButton() {
         mFacebookLogin.setOnClickListener() {
-            v -> facebookAuthenticator.doLogin(this)
+            _ -> facebookAuthenticator.doLogin(this)
         }
     }
 
