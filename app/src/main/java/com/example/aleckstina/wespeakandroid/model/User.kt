@@ -7,11 +7,22 @@ import com.android.databinding.library.baseAdapters.BR
 /**
  * Created by aleckstina on 10/6/17.
  */
-class User(email: String) : BaseObservable() {
+class User(email: String, imageUrl: String) : BaseObservable() {
   @Bindable
   private lateinit var email: String
 
-  public fun getEmail(): String = this.email
+  @Bindable
+  private var imageUrl: String = ""
+
+  fun getEmail(): String = this.email
+  @Bindable
+  fun getImageUrl(): String = this.imageUrl
+
+  @Bindable
+  public fun setImageUrl(imageUrl: String) {
+    this.imageUrl = imageUrl
+    notifyPropertyChanged(BR.imageUrl)
+  }
 
   public fun setEmail(email: String) {
     this.email = email
@@ -20,6 +31,7 @@ class User(email: String) : BaseObservable() {
 
   init {
     setEmail(email)
+    setImageUrl(imageUrl)
   }
 
 }
