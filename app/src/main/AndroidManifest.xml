@@ -43,6 +43,8 @@
         </activity>
         <activity android:name=".activities.FindingActivity">
         </activity>
+        <activity android:name=".activities.ReviewActivity">
+        </activity>
     </application>
 
 </manifest>
