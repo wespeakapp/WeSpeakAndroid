@@ -9,8 +9,10 @@ import android.content.Intent
 interface Authenticator {
     companion object {
         const val FACEBOOK = "facebook"
+        const val BACKEND = "backend"
         fun create(type: String) = when(type) {
             FACEBOOK -> FacebookAuthenticator()
+            BACKEND -> BackendAuthenticator() // If usable in future
             else -> throw IllegalArgumentException("Undefined Type")
         }
     }
