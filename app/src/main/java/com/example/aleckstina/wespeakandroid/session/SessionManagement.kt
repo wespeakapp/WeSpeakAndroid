@@ -26,4 +26,5 @@ class SessionManagement(context: Context) : SessionInterface {
     mSharedPreferences = mContext.getSharedPreferences("", Context.MODE_PRIVATE)
     return mSharedPreferences.getString("access_token", null)
   }
+
 }
